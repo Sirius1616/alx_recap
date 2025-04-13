@@ -13,3 +13,8 @@
 2025-04-13 01:24:50,283 - INFO - Fetched 1 relevant posts.
 2025-04-13 01:24:50,285 - INFO - \u2705 Output saved to C:\Users\nobody\.vscode\github\alx_recap\REST_API\Reddit_API\reddit_trending.txt
 2025-04-13 01:24:50,286 - INFO - \u2705 Cache updated.
+2025-04-13 02:28:40,353 - INFO - \U0001f680 Script started: Fetching Reddit trends...
+2025-04-13 02:28:40,357 - INFO - Fetching trending Reddit posts...
+2025-04-13 02:28:44,617 - INFO - Fetched 1 relevant posts.
+2025-04-13 02:28:44,619 - INFO - \u2705 Output saved to c:\Users\nobody\.vscode\github\alx_recap\REST_API\Reddit_API\reddit_trending.txt
+2025-04-13 02:28:44,621 - INFO - \u2705 Cache updated.
