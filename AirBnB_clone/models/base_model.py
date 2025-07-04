@@ -1,7 +1,7 @@
 """Module for BaseModel class."""
 import uuid
 from datetime import datetime
-import storage
+from models import storage
 
 """BaseModel class for AirBnB clone project.
 This class serves as the base for all other classes in the project.
