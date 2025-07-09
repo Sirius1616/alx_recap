@@ -1,4 +1,5 @@
 import json
+from models.base_model import BaseModel
 
 class FileStorage:
     """The storage class for the storage of other classes"""
@@ -25,7 +26,7 @@ class FileStorage:
         """Serializes objects to the JSON file (__file_path)"""
         obj_dict = {}
         for key, value in FileStorage.__objects.items():
-            obj_dict[key] = value
+            obj_dict[key] = value.to_dict()
 
         with open(FileStorage.__file_path, 'w') as json_file:
             json.dump(obj_dict, json_file, indent= 4)
@@ -38,7 +39,9 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as json_file:
                 new_json = json.load(json_file)
             for key, value in new_json.items():
-                FileStorage.__objects[key] = value
+                cls_name = value['__class__']
+                if cls_name == "BaseModel":
+                    FileStorage.__objects[key] = BaseModel(**value)
 
         except FileNotFoundError:
             pass

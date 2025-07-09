@@ -1,7 +1,6 @@
 """Module for BaseModel class."""
 import uuid
 from datetime import datetime
-from models import storage
 
 """BaseModel class for AirBnB clone project.
 This class serves as the base for all other classes in the project.
@@ -15,6 +14,9 @@ class BaseModel:
         updated_at (datetime): Timestamp of when the instance was last updated.
     """
     def __init__(self, *args, **kwargs):
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
         if kwargs:
             for key, value in kwargs.items():
@@ -23,10 +25,9 @@ class BaseModel:
                 elif key in ('created_at', 'updated_at'):
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, key, value)
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-        storage.new(self)
+        else:
+            from models import storage
+            storage.new(self)
 
     def __str__(self):
         """Prints a string format for each of the model created
@@ -40,6 +41,8 @@ class BaseModel:
     def save(self):
         """Updates the public instance attribute updated_at when the function is called on a model object"""
         self.updated_at = datetime.now()
+        from models import storage
+        storage.new(self)
         storage.save()
 
     
@@ -52,6 +55,9 @@ class BaseModel:
         dictn['id'] = self.id
         dictn['__class__'] = self.__class__.__name__
         return dictn
+    
+
+    
 
 
 
