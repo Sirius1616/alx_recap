@@ -90,24 +90,61 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representation of all instances based or not on the class name."""
-        obj_list = []
+        count = 0
         stored_object = storage.all()
         if not arg:
-            #print(arg.split()
-            for key, value in stored_object:
-                    obj_list.append(key, value.to_dict())
+            for value in stored_object.items():
+                    print(value[1])
+                    count = count + 1
 
         else:
             for value in stored_object.items():
-                print(value[1].to_dict())
-                if value[1].to_dict()['__class__'] == arg[0]:
-                    obj_list.append(value[1].to_dict())
-                    print("No new Item appended")
-        if not obj_list:
+                
+                if value[1].to_dict()['__class__'] == arg:
+                    print(value[1])
+                    count = count + 1
+        if count < 1:
             print("** class doesn't exist **")
-            print(obj_list)
+
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)"""
+        if not arg:
+            print("** class name missing **")
         else:
-            print(obj_list)
+            list_class = []
+            list_id = []
+            arg_list = arg.split()
+            stored_object = storage.all()
+            if len(arg_list) > 0:
+                for value in stored_object.items():
+                    list_class.append(value[1].to_dict()['__class__'])
+                    list_id.append(value[0])
+                if not list_class:
+                    print("** class doesn't exist **")
+                else:
+                    if len(arg_list) == 1:
+                        print("** instance id missing **")
+                    else:
+                        if not list_id:
+                            print("** no instance found **")
+                        else:
+                            if len(arg_list) == 3:
+                                print("** attribute name missing **")
+                            else:
+                                if len(arg_list) == 4:
+                                    print("** value missing **")
+                                else:
+                                    print("we have gotten to the root of it all")
+
+            else:
+                pass
+        #print(list_class)
+        #print(list_id)
+
+        #if len(arg_list) == 5:
+        #    if arg_list[0] in 
+
+
     
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
