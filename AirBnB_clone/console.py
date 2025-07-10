@@ -119,22 +119,30 @@ class HBNBCommand(cmd.Cmd):
                 for value in stored_object.items():
                     list_class.append(value[1].to_dict()['__class__'])
                     list_id.append(value[0])
-                if not list_class:
+                if arg_list[0] not in list_class:
                     print("** class doesn't exist **")
                 else:
                     if len(arg_list) == 1:
                         print("** instance id missing **")
                     else:
-                        if not list_id:
-                            print("** no instance found **")
+                        if not list_class:
+                            print("** class doesn't exist **")
                         else:
-                            if len(arg_list) == 3:
-                                print("** attribute name missing **")
+                            id_class = "{}.{}".format(arg_list[0], arg_list[1])
+                            if id_class not in list_id:
+                                print(list_id)
+                                print(id_class)
+                                print("** no instance found **")
                             else:
-                                if len(arg_list) == 4:
-                                    print("** value missing **")
+                                if len(arg_list) == 2:
+                                    print("** attribute name missing **")
                                 else:
-                                    print("we have gotten to the root of it all")
+                                    if len(arg_list) == 3:
+                                        print("** value missing **")
+                                    else:
+                                        stored_object[id_class].to_dict()[arg_list[2]] = arg_list[3]
+                                        print(type(storage.reload()))
+                                        print(stored_object[id_class].to_dict())
 
             else:
                 pass
