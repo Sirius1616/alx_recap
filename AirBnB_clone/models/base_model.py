@@ -42,7 +42,7 @@ class BaseModel:
         """Updates the public instance attribute updated_at when the function is called on a model object"""
         self.updated_at = datetime.now()
         from models import storage
-        storage.new(self)
+        #storage.new(self)
         storage.save()
 
     

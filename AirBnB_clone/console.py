@@ -140,9 +140,11 @@ class HBNBCommand(cmd.Cmd):
                                     if len(arg_list) == 3:
                                         print("** value missing **")
                                     else:
-                                        stored_object[id_class].to_dict()[arg_list[2]] = arg_list[3]
-                                        print(type(storage.reload()))
-                                        print(stored_object[id_class].to_dict())
+                                        #stored_object[id_class].to_dict()[arg_list[2]] = arg_list[3]
+                                        setattr(stored_object[id_class], arg_list[2], arg_list[3])
+                                        stored_object[id_class].save()
+                                        #print(stored_object[id_class].to_dict())
+                                        #return
 
             else:
                 pass
