@@ -1,11 +1,13 @@
 import json
 from models.base_model import BaseModel
+from models.user import User
 
 class FileStorage:
     """The storage class for the storage of other classes"""
 
     __file_path = 'file.json'
     __objects = {}
+    models = {'BaseModel': BaseModel, 'User': User}
 
     def all(self):
         """returns the dictionary object"""
