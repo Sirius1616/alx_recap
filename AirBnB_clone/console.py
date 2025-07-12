@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
                         if class_id == model_id:
                             print(stored_objects[class_id])
                             return
-                    print("** no instance found **")
+                    print("** no instance is found **")
 
 
     def do_destroy(self, arg):
