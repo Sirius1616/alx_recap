@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints the string representation of an instance based on the class name and id"""
         arg = arg.split()
         if not arg:
-            print("** class name missing **")
+            print("** class name is missing **")
         else:
             clases = ['BaseModel', 'User']
             if arg[0] not in clases:
