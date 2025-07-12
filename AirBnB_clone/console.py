@@ -69,23 +69,22 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
         else:
-            clases = ['BaseModel']
-            for model in clases:
-                if arg[0] != model:
-                    print("** class doesn't exist **")
+            clases = ['BaseModel', 'User']
+            if arg[0] not in clases:
+                print("** class doesn't exist **")
+            else:
+                if len(arg) < 2:
+                    print("** instance id missing **")
                 else:
-                    if len(arg) < 2:
-                        print("** instance id missing **")
-                    else:
-                        class_id = model + '.' + arg[1]
-                        stored_objects = storage.all()
-                        for model_id in stored_objects:
-                            if class_id == model_id:
-                                one = stored_objects
-                                del stored_objects[class_id]
-                                storage.save()
-                                return
-                        print("** no instance found **")
+                    class_id = arg[0] + '.' + arg[1]
+                    stored_objects = storage.all()
+                    for model_id in stored_objects:
+                        if class_id == model_id:
+                            one = stored_objects
+                            del stored_objects[class_id]
+                            storage.save()
+                            return
+                    print("** no instance found **")
 
 
     def do_all(self, arg):

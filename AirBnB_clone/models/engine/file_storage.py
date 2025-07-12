@@ -42,8 +42,7 @@ class FileStorage:
                 new_json = json.load(json_file)
             for key, value in new_json.items():
                 cls_name = value['__class__']
-                if cls_name == "BaseModel":
-                    FileStorage.__objects[key] = BaseModel(**value)
+                FileStorage.__objects[key] = FileStorage.models[cls_name](**value)
 
         except FileNotFoundError:
             pass
