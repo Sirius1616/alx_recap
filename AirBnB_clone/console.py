@@ -74,7 +74,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 if len(arg) < 2:
-                    print("** instance id missing **")
+                    print("** instance id is missing **")
                 else:
                     class_id = arg[0] + '.' + arg[1]
                     stored_objects = storage.all()
