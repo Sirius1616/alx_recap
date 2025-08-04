@@ -1,36 +1,22 @@
 #!/usr/bin/env node
 
-class Person {
-    name;
-
-    constructor(name){
-        this.name = name;
-
+class Point {
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
     }
 
-    introduceSelf() {
-        console.log(`Hi I am ${this.name} and welcome to my world`);
-    }
-}
+    static displayName = 'point';
+    static distance(a, b){
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
 
-class Professor extends Person{
-    constructor(name, course){
-        super(name);
-        this.course = course;
-    }
-
-    introduceSelf(){
-        console.log(
-            `My name is ${this.name}, and I will be your ${this.course} professor.`
-        )
+        return Math.hypot(dx, dy);
     }
 }
 
+const p1 = new Point(4, 6);
+const p2 =  new Point(6, 3);
 
-const firstPerson = new Person('John');
-const firstProf = new Professor('John', 'Physics');
-
-firstPerson.introduceSelf()
-firstProf.introduceSelf()
-
-
+console.log(Point.displayName)
+console.log(Point.distance(p1, p2))
