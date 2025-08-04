@@ -28,6 +28,9 @@ class Professor extends Person{
 
 
 const firstPerson = new Person('John');
+const firstProf = new Professor('John', 'Physics');
 
 firstPerson.introduceSelf()
+firstProf.introduceSelf()
+
 
