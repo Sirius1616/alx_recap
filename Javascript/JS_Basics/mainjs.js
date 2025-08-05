@@ -17,7 +17,8 @@ class Dog extends Animal{
     }
 
     speak(){
-        console.log("I am a human but they want me to say that I am a Dog however that is how they always relate to themselves")
+        super.speak();
+        console.log(`Hello my name is ${this.name}`)
     }
 }
 
