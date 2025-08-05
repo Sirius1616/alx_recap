@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-class Animal{
-    constructor(name){
-        this.name = name;
+class Vehicle {
+    constructor(make, model){
+        this.make = make;
+        this.model = model;
     }
 
-    speak(){
-        console.log('I am an animal and I speak some language like JS, Python')
-    }
-}
-
-
-class Dog extends Animal{
-    constructor(name){
-        super(name)
-    }
-
-    speak(){
-        super.speak();
-        console.log(`Hello my name is ${this.name}`)
+    start(){
+        console.log(`The ${this.make} with the model ${this.model} have started`)
     }
 }
 
 
-const specie = new Dog('Jimmy');
+class Car extends Vehicle{
+    constructor(make, model, year){
+        super(make, model)
+        this.year = year;
+    }
+    start(){
+        console.log(`This is the new vihicle I got with make of ${this.make} and model of ${this.model}`)
+    }
+}
 
-specie.speak()
+const newCar =new Car("Benz", 'GLE', 2023)
+
+
+newCar.start()
