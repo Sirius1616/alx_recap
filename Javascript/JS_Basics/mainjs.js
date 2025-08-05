@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 function firstNumbers(a){
-    return secondNumber(b){
+    return function(b){
         return (b + a);
     };
-    return secondNumber
 }
 
 const newFive = firstNumbers(5)
