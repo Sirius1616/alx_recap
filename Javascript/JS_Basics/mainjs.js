@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 
-function makeAdder(x){
-    return function (y){
-        return x + y;
+function firstNumbers(a){
+    return secondNumber(b){
+        return (b + a);
     };
+    return secondNumber
 }
 
+const newFive = firstNumbers(5)
 
-const add5 = makeAdder(5);
+const newSix = secondNumber(newFive)
+
+return newSix;
 
 
-console.log(add5(7));
+
+
