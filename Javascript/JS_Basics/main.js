@@ -1,14 +1,16 @@
-const myHeading = document.querySelector("#Heading1");
-const myButton = document.querySelector("#Button");
-
-let count = 1;
-
-myButton.onclick = () => {
-  myButton.textContent = "Try again now";
-  myHeading.textContent = `${count} clicks so far`
-
-  count += 1;
-};
+function makeSizer(size){
+  return () => {
+    document.body.style.fontSize = `${size}px`;
+  }
+}
 
 
+const size12 = makeSizer(12);
+const size14 = makeSizer(14);
+const size16 = makeSizer(16);
 
+
+
+document.getElementById('size-12').onclick = size12;
+document.getElementById("size-14").onclick = size14;
+document.getElementById("size-16").onclick = size16;

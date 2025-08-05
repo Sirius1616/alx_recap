@@ -1,14 +1,22 @@
 #!/usr/bin/env node
 
-function firstNumbers(a){
-    return function(b){
-        return (b + a);
-    };
+// your code goes here
+class Person {
+    constructor(firstName, lastName, age, hobbie){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.hobbie = hobbie;
+    }
+    
+    greet(){
+        console.log(`Hello ${firstName} ${lastName} I am glad to meet you here today for you are a good guy`)
+    }
 }
 
-const newFive = firstNumbers(5)
+const student = new Person('John', 'Ezekiel', 23, 'coding')
 
-console.log(newFive(6));
+student.greet()
 
 
 
