@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 
-class Book {
-    constructor(title, author, year){
-        this.title = title;
-        this.author = author;
-        this.year = year;
+class Animal{
+    constructor(name){
+        this.name = name;
     }
 
-    getDetails(){
-        console.log(`${this.title} ${this.author} ${this.year}`)
+    speak(){
+        console.log('I am an animal and I speak some language like JS, Python')
     }
 }
 
-const newBook = new Book('A new earth', 'Ekhart Tolle', 1990)
+
+class Dog extends Animal{
+    constructor(name){
+        super(name)
+    }
+
+    speak(){
+        console.log("I am a human but they want me to say that I am a Dog however that is how they always relate to themselves")
+    }
+}
 
 
-newBook.getDetails()
+const specie = new Dog('Jimmy');
 
+specie.speak()
