@@ -4,7 +4,7 @@ const myButton = document.querySelector("#Button");
 let count = 1;
 
 myButton.onclick = () => {
-  myButton.textContent = "Try again later";
+  myButton.textContent = "Try again now";
   myHeading.textContent = `${count} clicks so far`
 
   count += 1;
