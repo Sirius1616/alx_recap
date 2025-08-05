@@ -8,9 +8,7 @@ function firstNumbers(a){
 
 const newFive = firstNumbers(5)
 
-const newSix = secondNumber(newFive)
-
-return newSix;
+console.log(newFive(6));
 
 
 
