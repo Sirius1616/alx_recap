@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 
-let User = {
-    id: 34, name: {
-        firstName: 'John', lastName: 'Omo'
-    }, address: {street: 'Ezena', city: 'Benin', state: 'Edo'}
+class Book {
+    constructor(title, author, year){
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+
+    getDetails(){
+        console.log(`${this.title} ${this.author} ${this.year}`)
+    }
 }
 
-console.log(User.name.firstName);
-console.log(User.name.lastName);
+const newBook = new Book('A new earth', 'Ekhart Tolle', 1990)
 
 
-
+newBook.getDetails()
 
