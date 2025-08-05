@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
-class newObject{
-    constructor(value){
-        this.value = value;
-    }
-
-    increament(){
-        this.value = this.value + 1;
-        console.log(this.value)
+function outerFunction(){
+    let counter = 0
+    return function(){
+      counter += 1;
+      return counter;
     }
 }
 
 
-testObject =  new newObject(5);
+const testFunction = outerFunction();
+testFunction();
+testFunction();
+testFunction();
+testFunction();
+testFunction();
+testFunction();
 
-
-testObject.increament()
+console.log(testFunction())
