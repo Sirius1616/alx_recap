@@ -29,4 +29,4 @@ session = Session()
 user = User(name='John', fullname='John Ezekiel', nickname='Sirius_A')
 session.add(user)
 
-session.commit()
+session.commit().
