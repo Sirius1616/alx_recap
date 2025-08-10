@@ -34,7 +34,7 @@ engine = create_engine('mysql+pymysql://root:Siriusa1.615@localhost:3306/mysql_d
 
 Base.metadata.create_all(engine)
 
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=engine).
 
 
 session = Session()
