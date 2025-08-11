@@ -7,7 +7,7 @@ Base = declarative_base()
 user_post_association = Table('user_post_association', Base.metadata,
                               Column('user_id', Integer, ForeignKey('users.id'), primary_key=True),
                               Column('post_id', Integer, ForeignKey('posts.id'), primary_key=True)
-                        ).
+                        )
 
 
 class User(Base):
