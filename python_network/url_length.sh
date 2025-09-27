@@ -1,21 +1,23 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-# Check if URL was provided
-if [-z "$1"] then
-    echo "Usage: $0 <url>"
+# Check for the the second argument exist
+if [ -z "$1" ]; then
+    echo "Usage: curl <url>"
     exit 1
 fi
 
-
 URL="$1"
 
-# Fetch the body using curl
-BODY=$(curl -s "$URL")
 
-# Print the body
+# Assign scheme if scheme was not provided
+if [ "$URL" != "http*://*"]; then
+    URL="https://$URL"
+fi
+
+BODY=$(curl -X GET "$URL")
+
 echo "Body of the URL: "
 echo "$BODY"
 
-# Print the length of the body
-echo
+echo 
 echo "Length of body: ${#BODY}"
