@@ -8,4 +8,4 @@ fi
 
 URL="$1"
 
-BODY="$
+BODY="$"
