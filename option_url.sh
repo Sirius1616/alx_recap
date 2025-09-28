@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # Check if the second argument was passed
-if [ -z "$1"]; then
+if [ -z "$1"]; 
     echo "Usage: curl <url>"
     exit 1
 fi
