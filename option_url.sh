@@ -2,7 +2,7 @@
 
 # Check if the second argument was passed
 if [ -z "$1"]; then
-    echo "Usage: curl <url>"
+    echo "Usage: curl <ur>"
     exit 1
 fi
 
