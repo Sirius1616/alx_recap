@@ -9,3 +9,5 @@ fi
 URL="$1"
 
 BODY=$(curl -X OPTION "$1")
+
+echo "Body of url: $BODY"
