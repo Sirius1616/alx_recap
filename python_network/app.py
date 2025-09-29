@@ -32,14 +32,24 @@ def add_item(item_id):
     items[item_id] = {'name': data['name']}
     return jsonify({'added': items[item_id]}), 201
 
-@app.route('/items/<int>: item_id', methods=['GET'])
+@app.route('/items/<int:item_id>', methods=['GET'])
 def retrieve_item(item_id):
     if item_id not in items:
         return make_response(jsonify({'Error': "Item not found"}), 404)
 
+
+    return jsonify({"Retrieving ...": f'item with {item_id} is given as {items[item_id]}'})
+
+@app.route('/items/<int:item_id>', methods=['POST'])
+def modify_item(item_id):
+    if not item_id or 'name' not in item_id:
+        return jsonify({"Error": f"item with {item_id not found}"}, 404)
+
     data = request.get_json()
 
-    return jsonify({"Retrieving ...": f'item with {item_id} is given as {data[item_id]}'})
+    items[item_id] = {"email": 'johnezekiel130@gmail.com'}
+
+    return jsonify({"Added...": items[item_id]}, 201)
 
 
 if __name__ == "__main__":
