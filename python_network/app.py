@@ -41,13 +41,13 @@ def retrieve_item(item_id):
     return jsonify({"Retrieving ...": f'item with {item_id} is given as {items[item_id]}'})
 
 @app.route('/items/<int:item_id>', methods=['POST'])
-def modify_item(item_id):
+def modify_item(item_id, ):
     if not item_id or 'name' not in item_id:
-        return jsonify({"Error": f"item with {item_id not found}"}, 404)
+        return jsonify({"Error": f"item with {item_id} not found"}, 404)
 
     data = request.get_json()
 
-    items[item_id] = {"email": 'johnezekiel130@gmail.com'}
+    items[item_id]['email'] = data['email']
 
     return jsonify({"Added...": items[item_id]}, 201)
 
