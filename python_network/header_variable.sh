@@ -8,7 +8,7 @@ fi
 
 URL="$1"
 
-if [ "$URL" != "http*://*"]; then
+if [ "$URL" != "http*://*"]; 
     URL="https://$URL"
 fi
 
