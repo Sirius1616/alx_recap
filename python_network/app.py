@@ -28,9 +28,18 @@ def add_item(item_id):
     data = request.get_json()
     if not data or 'name' not in data:
             return make_response(jsonify({'error': 'Item not added'}), 400)
-            
+
     items[item_id] = {'name': data['name']}
     return jsonify({'added': items[item_id]}), 201
+
+@app.route('/items/<int>: item_id', methods=['GET'])
+def retrieve_item(item_id):
+    if item_id not in items:
+        return make_response(jsonify({'Error': "Item not found"}), 404)
+
+    data = request.get_json()
+
+    return jsonify({"Retrieving ...": f'item with {item_id} is given as {data[item_id]}'})
 
 
 if __name__ == "__main__":
